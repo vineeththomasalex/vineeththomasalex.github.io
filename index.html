@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineeth Thomas Alex — Senior Software Engineer</title>
+    <meta name="description" content="Senior Software Engineer at Microsoft. Windows SDK owner. Building developer tools, platform infrastructure, and AI-powered experiences.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --surface-hover: #1a1a1a;
+            --border: #222222;
+            --border-hover: #333333;
+            --text: #e0e0e0;
+            --text-muted: #888888;
+            --accent: #58a6ff;
+            --accent-dim: #1a3a5c;
+            --green: #3fb950;
+            --orange: #d29922;
+            --purple: #bc8cff;
+            --red: #f85149;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+        .btn-primary:hover { background: #79bbff; }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover { border-color: var(--border-hover); background: var(--surface); }
+
+        /* Sections */
+        section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .skill-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            font-size: 1.5rem;
+        }
+
+        .project-arrow {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover .project-arrow {
+            transform: translate(3px, -3px);
+        }
+
+        .project-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        /* Experience */
+        .experience-item {
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            padding-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .experience-item:last-child { padding-bottom: 0; }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .exp-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .exp-company {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon { font-size: 1.5rem; }
+
+        .contact-card span {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .projects-grid { grid-template-columns: 1fr; }
+            section { padding: 3rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">vineeth.dev</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>●</span> Available for interesting opportunities
+            </div>
+            <h1>
+                I build <span class="gradient">developer tools</span><br>
+                that ship to millions.
+            </h1>
+            <p class="hero-sub">
+                Senior Software Engineer at Microsoft. Currently owning the
+                <strong style="color: var(--text)">Windows SDK</strong> on the
+                Developer Ecosystem &amp; Tools team. I design, build, and ship
+                platform infrastructure that developers depend on.
+            </p>
+            <div class="hero-links">
+                <a href="#projects" class="btn btn-primary">
+                    View Projects ↓
+                </a>
+                <a href="https://www.linkedin.com/in/vineeththomasalex/" class="btn btn-outline" target="_blank">
+                    LinkedIn →
+                </a>
+                <a href="https://github.com/vineeththomasalex" class="btn btn-outline" target="_blank">
+                    GitHub →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section id="about">
+        <div class="section-inner">
+            <div class="section-label">// about</div>
+            <h2 class="section-title">Engineering at Scale</h2>
+            <p class="section-desc" style="max-width: 700px;">
+                I'm a senior software engineer at Microsoft with deep expertise across the full stack —
+                from low-level Windows debugging and C++ systems code to modern React/TypeScript developer
+                experiences and AI-powered tooling. I own the Windows SDK, shaping how millions of
+                developers build on Windows. I care about developer experience, clean APIs, and shipping
+                things that work.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" style="background: var(--surface);">
+        <div class="section-inner">
+            <div class="section-label">// skills</div>
+            <h2 class="section-title">What I Work With</h2>
+            <p class="section-desc">Deep expertise across systems programming, web platforms, and cloud infrastructure.</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>⚡ Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🎨 Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">Material-UI</span>
+                        <span class="tag">Browser Extensions</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>☁️ Cloud & APIs</h3>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Microsoft Graph</span>
+                        <span class="tag">REST API Design</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🔧 Dev Tools & Infra</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Azure DevOps</span>
+                        <span class="tag">MCP</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Windows Debugging</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🛡️ Practices</h3>
+                    <div class="skill-tags">
+                        <span class="tag">TDD</span>
+                        <span class="tag">Security Reviews</span>
+                        <span class="tag">Migrations</span>
+                        <span class="tag">Distribution & Delivery</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🤖 AI & Automation</h3>
+                    <div class="skill-tags">
+                        <span class="tag">OpenAI API</span>
+                        <span class="tag">GitHub Copilot</span>
+                        <span class="tag">MCP Skills</span>
+                        <span class="tag">Agentic Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-inner">
+            <div class="section-label">// projects</div>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-desc">Open-source tools and side projects — built to solve real problems.</p>
+            <div class="projects-grid">
+                <a href="https://github.com/vineeththomasalex/ADOPagesExtension" class="project-card" target="_blank">
+                    <div class="project-header">
+                        <span class="project-icon">🌐</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>ADO Pages Extension</h3>
+                    <p>Chrome extension that renders HTML files in Azure DevOps repos as live webpages. Recursive CSS inlining, dynamic asset URL rewriting, and branch-aware SPA-safe URL parsing.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Manifest V3</span>
+                        <span class="tech-tag">AzDO API</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </a>
+                <a href="https://github.com/vineeththomasalex/DocxRedliner" class="project-card" target="_blank">
+                    <div class="project-header">
+                        <span class="project-icon">📄</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>DocxRedliner</h3>
+                    <p>Offline browser-based DOCX comparison tool with Git-style redlining. Two-level diffing with Web Workers, synchronized side-by-side scrolling, and HTML export.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Web Workers</span>
+                        <span class="tech-tag">diff-match-patch</span>
+                    </div>
+                </a>
+                <a href="https://github.com/vineeththomasalex/SharePointCopyBot" class="project-card" target="_blank">
+                    <div class="project-header">
+                        <span class="project-icon">📁</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>SharePoint CopyBot</h3>
+                    <p>Zero-infrastructure SharePoint document library sync running entirely in the browser. OAuth 2.0 PKCE flow, incremental delta sync via Microsoft Graph, and IndexedDB state management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">MSAL.js</span>
+                        <span class="tech-tag">Graph API</span>
+                    </div>
+                </a>
+                <a href="https://github.com/vineeththomasalex/HubSpotProject" class="project-card" target="_blank">
+                    <div class="project-header">
+                        <span class="project-icon">🤖</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>HubSpot AI Email Extension</h3>
+                    <p>Browser extension integrating HubSpot CRM data with OpenAI to generate contextually intelligent email replies directly in Gmail's compose box.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">HubSpot API</span>
+                    </div>
+                </a>
+                <a href="https://github.com/vineeththomasalex/personal-whiteboard-app" class="project-card" target="_blank">
+                    <div class="project-header">
+                        <span class="project-icon">🎨</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>Teams Whiteboard App</h3>
+                    <p>Microsoft Teams whiteboard application with personal drawing canvas and presenter sharing capabilities for real-time collaboration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Teams SDK</span>
+                        <span class="tech-tag">Canvas API</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" style="background: var(--surface);">
+        <div class="section-inner">
+            <div class="section-label">// experience</div>
+            <h2 class="section-title">Where I've Worked</h2>
+            <p class="section-desc">Building platform infrastructure and developer tools at scale.</p>
+            <div style="max-width: 650px;">
+                <div class="experience-item">
+                    <div class="exp-role">Senior Software Engineer</div>
+                    <div class="exp-company">Microsoft — Windows Developer Ecosystem & Tools</div>
+                    <div class="exp-date">Current</div>
+                    <p class="exp-desc">
+                        Own the Windows SDK. Build and ship developer tools, platform infrastructure,
+                        and SDK distribution pipelines used by millions of Windows developers worldwide.
+                        Drive migrations, security reviews, and delivery for critical developer-facing components.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-inner">
+            <div class="section-label">// contact</div>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-desc">Open to interesting conversations about developer tools, platform engineering, and hard technical problems.</p>
+            <div class="contact-grid">
+                <a href="https://www.linkedin.com/in/vineeththomasalex/" class="contact-card" target="_blank">
+                    <span class="contact-icon">💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/vineeththomasalex" class="contact-card" target="_blank">
+                    <span class="contact-icon">🐙</span>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built by Vineeth Thomas Alex · Hosted on GitHub Pages</p>
+    </footer>
+</body>
+</html>
