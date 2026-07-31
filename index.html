@@ -288,6 +288,20 @@
             margin-bottom: 1.25rem;
         }
 
+        .card-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #0b0f18;
+            font-weight: 700;
+            margin-right: auto;
+            margin-left: 0.6rem;
+        }
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
@@ -526,6 +540,20 @@
             <h2 class="section-title">Featured Work</h2>
             <p class="section-desc">Open-source tools and side projects — built to solve real problems.</p>
             <div class="projects-grid">
+                <a href="https://vineeththomasalex.github.io/dll-visualizer/" class="project-card" target="_blank" style="border-color: var(--accent); background: linear-gradient(135deg, var(--surface) 0%, var(--accent-dim) 100%);">
+                    <div class="project-header">
+                        <span class="project-icon">🧬</span>
+                        <span class="card-badge">Featured</span>
+                        <span class="project-arrow">↗</span>
+                    </div>
+                    <h3>DLL Visualizer</h3>
+                    <p>Drop a Windows DLL and see the exact layout the loader builds in memory — colour-coded section map, every PE header field explained, imports grouped by purpose, in-browser PDB symbol resolution, live WebAssembly disassembly, and a visual build-to-build diff. A PE/COFF parser written from scratch, 100% client-side.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">PE/COFF</span>
+                        <span class="tech-tag">WebAssembly</span>
+                    </div>
+                </a>
                 <a href="https://vineeththomasalex.github.io/system-design-interviewer/" class="project-card" target="_blank" style="border-color: var(--accent); background: linear-gradient(135deg, var(--surface) 0%, var(--accent-dim) 100%);">
                     <div class="project-header">
                         <span class="project-icon">🎤</span>
@@ -551,19 +579,6 @@
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">SVG</span>
                         <span class="tech-tag">CodeMirror</span>
-                    </div>
-                </a>
-                <a href="https://vineeththomasalex.github.io/dll-visualizer/" class="project-card" target="_blank">
-                    <div class="project-header">
-                        <span class="project-icon">🧬</span>
-                        <span class="project-arrow">↗</span>
-                    </div>
-                    <h3>DLL Visualizer</h3>
-                    <p>Drop a Windows DLL and see the exact layout the loader builds in memory — colour-coded section map, every PE header field explained, imports grouped by purpose, PDB symbol resolution, live WebAssembly disassembly, and a visual build-to-build diff.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">PE/COFF</span>
-                        <span class="tech-tag">WebAssembly</span>
                     </div>
                 </a>
                 <a href="https://vineeththomasalex.github.io/binary-explorer/" class="project-card" target="_blank">
